@@ -1,0 +1,18 @@
+[Unit]
+Description=HAProxy Load Balancer
+After=network.target
+
+[Service]
+# You can point the environment variable HAPROXY_STATS_SOCKET to a stats
+# socket if you want seamless reloads.
+Environment="CONFIG=/etc/haproxy/haproxy.cfg" "PIDFILE=/run/haproxy.pid"
+ExecStartPre=@SBINDIR@/haproxy -f $CONFIG -c -q
+ExecStart=@SBINDIR@/haproxy -Ws -f $CONFIG -p $PIDFILE
+ExecReload=@SBINDIR@/haproxy -f $CONFIG -c -q
+ExecReload=/bin/kill -USR2 $MAINPID
+KillMode=mixed
+Restart=always
+Type=notify
+
+[Install]
+WantedBy=multi-user.target
