@@ -18,10 +18,10 @@ The executables have a command line of the format:
 
 Here:
 
-<exec_name> is the path for the executable (e.g., hhh1d ).
-<nr_packets> is the length of the stream (in packets).
-<window_size> is the size of the window (in packets).
-<nr_counters> the number of counters per hierarchy node (e.g., in 1D the overall number of counters will be 5*nr_counters).
+<exec_name> is the path for the executable (e.g., hhh1d ).<br/>
+<nr_packets> is the length of the stream (in packets).<br/>
+<window_size> is the size of the window (in packets).<br/>
+<nr_counters> the number of counters per hierarchy node (e.g., in 1D the overall number of counters will be 5*nr_counters).<br/>
 <insert_prob> is the parameter tau from the paper -- the rate in which each packet is sampled.
 
 The executables read the input trace from stdin (redirect from a file).
