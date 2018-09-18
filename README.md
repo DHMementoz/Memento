@@ -19,13 +19,9 @@ The executables have a command line of the format:
 Here:
 
 <exec_name> is the path for the executable (e.g., hhh1d ).
-
 <nr_packets> is the length of the stream (in packets).
-
 <window_size> is the size of the window (in packets).
-
 <nr_counters> the number of counters per hierarchy node (e.g., in 1D the overall number of counters will be 5*nr_counters).
-
 <insert_prob> is the parameter tau from the paper -- the rate in which each packet is sampled.
 
 The executables read the input trace from stdin (redirect from a file).
@@ -34,14 +30,14 @@ The trace, for 1D traces, needs to be of the format
 
 %d %d %d %d
 
-Where these are the four bytes of the IP address.
+where these are the four bytes of the IP address.
 
 
 For 2D traces, each line has the format
 
 %d %d %d %d %d %d %d %d
 
-Where the first four bytes are the src-ip and the next four are the dst-ip.
+where the first four bytes are the src-ip and the next four are the dst-ip.
 
 
 You can see an example trace here: https://github.com/ranbenbasat/RHHH/blob/master/dataSample
