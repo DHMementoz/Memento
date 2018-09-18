@@ -9,13 +9,19 @@ hhh2d - which is the implementation of H-Memento for 2D IP hierarchies.
 In (Memento/hhh_source/windowHH) we have the source code for the (non-hierarchical) Memento. We will shortly add a Makefile that compiles that.
 
 The executables have a command line of the format:
+
 <exec_name> <nr_packets> <window_size> <nr_counters> <insert_prob> 
 
 Here:
+
 <exec_name> is the path for the executable (e.g., hhh1d ).
+
 <nr_packets> is the length of the stream (in packets).
+
 <window_size> is the size of the window (in packets).
+
 <nr_counters> the number of counters per hierarchy node (e.g., in 1D the overall number of counters will be 5*nr_counters).
+
 <insert_prob> is the parameter tau from the paper -- the rate in which each packet is sampled.
 
 The executables read the input trace from stdin (redirect from a file).
