@@ -3,21 +3,15 @@
 ### We release an open source of all our algorithms.
 
 In (Memento/hhh_source/windowHHH) you can find the Makefile that compiles:
-
-hhh1d - which is the implementation of H-Memento for 1D IP hierarchies.
-
+hhh1d - which is the implementation of H-Memento for 1D IP hierarchies.<br/>
 hhh2d - which is the implementation of H-Memento for 2D IP hierarchies.
-
 
 In (Memento/hhh_source/windowHH) we have the source code for the (non-hierarchical) Memento. We will shortly add a Makefile that compiles that.
 
-
-The executables have a command line of the format:
-
+The executables have a command line of the format:<br/>
 <exec_name> <nr_packets> <window_size> <nr_counters> <insert_prob> 
 
-Here:
-
+Here:<br/>
 <exec_name> is the path for the executable (e.g., hhh1d ).<br/>
 <nr_packets> is the length of the stream (in packets).<br/>
 <window_size> is the size of the window (in packets).<br/>
@@ -26,19 +20,13 @@ Here:
 
 The executables read the input trace from stdin (redirect from a file).
 
-The trace, for 1D traces, needs to be of the format
+The trace, for 1D traces, needs to be of the format<br/>
+%d %d %d %d<br/>
+where these are the four bytes of the IP address.<br/>
 
-%d %d %d %d
-
-where these are the four bytes of the IP address.
-
-
-For 2D traces, each line has the format
-
-%d %d %d %d %d %d %d %d
-
+For 2D traces, each line has the format<br/>
+%d %d %d %d %d %d %d %d<br/>
 where the first four bytes are the src-ip and the next four are the dst-ip.
-
 
 You can see an example trace here: https://github.com/ranbenbasat/RHHH/blob/master/dataSample
 
