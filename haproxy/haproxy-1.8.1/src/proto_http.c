@@ -3433,8 +3433,10 @@ int http_process_req_common(struct stream *s, struct channel *req, int an_bit, s
 							 hh1d_reversed_ip_number&0x000000FF, 
 							 window_hh_query(hh1d_reversed_ip_number));
 			
-		// TODO MITIGATION once query is available.
-					
+		// TODO MITIGATION once query is available. For example:
+		// goto tarpit; // reject request and hang client
+		// goto deny; // reject request
+							
 	} // end HHH if
 	
 #endif
@@ -3447,13 +3449,11 @@ int http_process_req_common(struct stream *s, struct channel *req, int an_bit, s
 
 	unsigned int hh1d_ip_number;   
 	unsigned int hh1d_reversed_ip_number; 
-	
-	float hhh1d_insertProb = 1;
-		
+			
 	// This function is called twice. We are only interested in frontend.
 	if (an_bit == AN_REQ_HTTP_PROCESS_FE) {
 	
-		printf("HHH DEBUG: IN proto-HTTP\n");
+		printf("HHH DEBUG: IN proto-HTTP: %d\n", NUM_MASKS);
 		
 		// Exctruct client's IP
 		hh1d_ip_number = ((struct sockaddr_in *) &conn->addr.from)->sin_addr.s_addr;
@@ -3474,13 +3474,15 @@ int http_process_req_common(struct stream *s, struct channel *req, int an_bit, s
 								   (hh1d_reversed_ip_number>>8)&0x000000FF, 
 								    hh1d_reversed_ip_number&0x000000FF);
 								   
-		printf("FREQ. %u %u %u %u %u\n", (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number)*(NUM_MASKS / hhh1d_insertProb)), 
-					                     (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0xFFFFFF00)*(NUM_MASKS / hhh1d_insertProb)), 
-										 (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0xFFFF0000)*(NUM_MASKS / hhh1d_insertProb)), 
-										 (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0xFF000000)*(NUM_MASKS / hhh1d_insertProb)), 
-										 (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0x00000000)*(NUM_MASKS / hhh1d_insertProb)));
+		printf("FREQ. %u %u %u %u %u\n", (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number)), 
+					                     (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0xFFFFFF00)), 
+										 (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0xFFFF0000)), 
+										 (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0xFF000000)), 
+										 (unsigned int)(wrhhh1d_pointQuery(hh1d_reversed_ip_number&0x00000000)));
 			
-		// TODO MITIGATION once query is available.
+		// TODO MITIGATION once query is available. For example:
+		// goto tarpit; // reject request and hang client
+		// goto deny; // reject request
 					
 	} // end HHH if
 	
@@ -3488,9 +3490,6 @@ int http_process_req_common(struct stream *s, struct channel *req, int an_bit, s
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-
-// SV
-	
 		
 	if (unlikely(msg->msg_state < HTTP_MSG_BODY)) {
 		/* we need more data */
