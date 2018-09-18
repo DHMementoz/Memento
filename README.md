@@ -2,7 +2,7 @@
 
 ### We release an open source of all our algorithms.
 
-In (Memento/hhh_source/windowHHH) you can find the Makefile that compiles:
+In (Memento/hhh_source/windowHHH) you can find the Makefile that compiles:<br/>
 hhh1d - which is the implementation of H-Memento for 1D IP hierarchies.<br/>
 hhh2d - which is the implementation of H-Memento for 2D IP hierarchies.
 
