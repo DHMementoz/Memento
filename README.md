@@ -1,6 +1,6 @@
-# Memento: Making Sliding Windows Efficient for Heavy Hitters
+## Memento: Making Sliding Windows Efficient for Heavy Hitters
 
-###We release an open source of all our algorithms.
+### We release an open source of all our algorithms.
 
 In (Memento/hhh_source/windowHHH) you can find the Makefile that compiles:
 hhh1d - which is the implementation of H-Memento for 1D IP hierarchies.
@@ -29,23 +29,23 @@ Where the first four bytes are the src-ip and the next four are the dst-ip.
 
 You can see an example trace here: https://github.com/ranbenbasat/RHHH/blob/master/dataSample
 
-###HAProxy extension:
+### HAProxy extension:
 A basic tutorial: https://www.howtoforge.com/tutorial/ubuntu-load-balancer-haproxy/
 
-####Compile HAProxy:
+#### Compile HAProxy:
 
 cd ./Memento/haproxy/haproxy-1.8.1
 make TARGET=linux2628 CPU=native USE_STATIC_PCRE=1 USE_OPENSSL=1 USE_ZLIB=1
 
-####Start HAProxy:
+#### Start HAProxy:
 
 sudo ./haproxy -f PATH_TO_CONFIG_FILE/haproxy.cfg
 
-####About:
+#### About:
 
 For each entering HTTP request, HAProxy prints out the source IP address of HTTP request and the number of its appearances over the hierarchies.
 
-####Most relevant parts of the code: 
+#### Most relevant parts of the code: 
 
 proto_http.c (lines 3406-3489) - here, it is possible to add mitigation (e.g., deny or tarpit) and control the export of data (e.g., print to a terminal, write to file, etc.).
 
