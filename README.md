@@ -6,7 +6,7 @@ In (Memento/hhh_source/windowHHH) you can find the Makefile that compiles:<br/>
 hhh1d - which is the implementation of H-Memento for 1D IP hierarchies.<br/>
 hhh2d - which is the implementation of H-Memento for 2D IP hierarchies.
 
-In (Memento/hhh_source/windowHH) we have the source code for the (non-hierarchical) Memento. We will shortly add a Makefile that compiles that.
+In (Memento/hhh_source/windowHH) we have the source code for the (non-hierarchical) Memento.
 
 The executables have a command line of the format:<br/>
 <exec_name> <nr_packets> <window_size> <nr_counters> <insert_prob> 
